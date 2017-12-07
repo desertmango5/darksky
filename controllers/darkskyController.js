@@ -1,5 +1,8 @@
-const { DarkSky } = require('../start');
+const axios = require('axios');
+require('dotenv').config({ path: '../variables.env' });
+
+// const { DarkSky } = require('../start');
 
 exports.homePage = (req, res) => {
-  res.json(DarkSky);
+  res.send('hello');
 };
