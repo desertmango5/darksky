@@ -1,8 +1,15 @@
 const axios = require('axios');
-require('dotenv').config({ path: '../variables.env' });
 
-// const { DarkSky } = require('../start');
+const [lat, lon] = [24.150, 55.702];
+const darkskyAPI = `https://api.darksky.net/forecast/${process.env.DARKSKY_SECRET_KEY}/${lat},${lon}`;
 
-exports.homePage = (req, res) => {
-  res.send('hello');
+const DarkSky = () => axios.get(darkskyAPI)
+  .then(response => response)
+  .catch((error) => {
+    console.log(error);
+  });
+
+exports.homePage = async (req, res) => {
+  const response = await DarkSky();
+  res.send(response.data);
 };
