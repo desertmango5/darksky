@@ -5,3 +5,4 @@ exports.dump = obj => JSON.stringify(obj, null, 2);
 
 // site details
 exports.siteName = 'Dark Sky 🌩️';
+

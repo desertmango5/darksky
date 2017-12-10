@@ -1,5 +1,4 @@
 require('dotenv').config({ path: 'variables.env' });
-const axios = require('axios');
 
 const app = require('./app');
 

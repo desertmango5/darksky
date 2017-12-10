@@ -1,7 +1,7 @@
 const axios = require('axios');
 
-const [lat, lon] = [24.150, 55.702];
-const darkskyAPI = `https://api.darksky.net/forecast/${process.env.DARKSKY_SECRET_KEY}/${lat},${lon}`;
+const [lat, long] = [24.207500, 55.744720];
+const darkskyAPI = `https://api.darksky.net/forecast/${process.env.DARKSKY_SECRET_KEY}/${lat},${long}`;
 
 const DarkSky = () => axios.get(darkskyAPI)
   .then(response => response)
@@ -9,7 +9,8 @@ const DarkSky = () => axios.get(darkskyAPI)
     console.log(error);
   });
 
+
 exports.homePage = async (req, res) => {
   const response = await DarkSky();
-  res.send(response.data);
+  res.render('index', {response, title: 'Home' });
 };

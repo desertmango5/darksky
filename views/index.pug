@@ -1,5 +1,13 @@
 extends layout
-
-block content
-  h1 Hello, Dark Sky
   
+block content
+  - const ds = response.data.currently
+  p= `Summary: ${ds.summary}`
+  p= `Temperature: ${ds.temperature}`
+  - const humidity = ds.humidity * 100
+  p= `Humidity: ${humidity}%`
+  p= `Wind Speed: ${ds.windSpeed} mph`
+
+  #out  
+  
+
