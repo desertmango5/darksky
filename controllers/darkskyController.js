@@ -14,3 +14,11 @@ exports.homePage = async (req, res) => {
   const response = await DarkSky();
   res.render('index', {response, title: 'Home' });
 };
+
+exports.api = async (req, res) => {
+  const lat = req.params.lat;
+  const long = req.params.long;
+  console.log(lat, long);
+
+  res.send('Received');
+};
